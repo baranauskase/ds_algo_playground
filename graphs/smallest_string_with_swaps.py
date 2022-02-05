@@ -20,17 +20,22 @@ class Solution:
         for p in pairs:
             uf.union(p[0], p[1])
 
-        swap_done = True
-        out = list(s)
-        while swap_done:
-            swap_done = False
-            for i in range(len(s)):
-                root = uf.find(i)
-                if i < root and out[root] < out[i]:
-                    out[i], out[root] = out[root], out[i]
-                    swap_done = True
-                elif root < i and out[i] < out[root]:
-                    out[i], out[root] = out[root], out[i]
-                    swap_done = True
+        local_s = {}
+
+        for i in range(len(s)):
+            root = uf.find(i)
+            if root not in local_s:
+                local_s[root] = []
+
+            local_s[root].append(s[i])
+
+        for v in local_s.values():
+            v.sort()
+
+        out = [None] * len(s)
+
+        for i in reversed(range(len(s))):
+            root = uf.find(i)
+            out[i] = local_s[root].pop()
 
         return ''.join(out)
