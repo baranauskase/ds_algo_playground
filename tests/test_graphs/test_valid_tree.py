@@ -1,5 +1,5 @@
 import pytest
-from graphs.valid_tree import is_valid_tree
+from graphs.valid_tree import Solution
 
 @pytest.mark.parametrize('n, edges, expect', [
     (
@@ -18,5 +18,5 @@ from graphs.valid_tree import is_valid_tree
         False
     )
 ])
-def test_is_valid_tree(n, edges, expect):
-    assert expect == is_valid_tree(n, edges)
+def test_valid_tree(n, edges, expect):
+    assert expect == Solution().valid_tree(n, edges)

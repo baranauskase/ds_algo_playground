@@ -8,12 +8,14 @@ Return true if the edges of the given graph make up a valid tree, and false othe
 from typing import List
 from graphs.union_find import UnionFind
 
-def is_valid_tree(n: int, edges: List[List[int]]):
-    uf = UnionFind(n)
 
-    for edge in edges:
-        if uf.connected(edge[0], edge[1]):
-            return False
-        uf.union(edge[0], edge[1])
+class Solution:
+    def valid_tree(self, n: int, edges: List[List[int]]) -> bool:
+        uf = UnionFind(n)
 
-    return uf.root_count == 1
+        for edge in edges:
+            if uf.connected(edge[0], edge[1]):
+                return False
+            uf.union(edge[0], edge[1])
+
+        return uf.root_count == 1

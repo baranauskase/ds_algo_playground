@@ -1,6 +1,6 @@
 from unittest import expectedFailure
 import pytest
-from graphs.number_of_provinces import Solution
+from graphs.find_circle_num import Solution
 
 @pytest.mark.parametrize('case, expect', [
     ([[1,1,0],[1,1,0],[0,0,1]], 2),

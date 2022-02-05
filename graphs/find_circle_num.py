@@ -14,6 +14,7 @@ Return the total number of provinces.
 """
 from typing import List
 from graphs.union_find import UnionFind
+
 class Solution:
     def finde_circle_num(self, is_connected: List[List[int]]) -> int:
         uf = UnionFind(max(len(is_connected), len(is_connected[0])))

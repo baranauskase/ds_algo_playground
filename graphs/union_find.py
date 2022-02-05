@@ -34,7 +34,6 @@ class UnionFind(object):
         """
         Finds the root node of x
         """
-
         if x != self._nodes[x]:
             self._nodes[x] = self.find(self._nodes[x])
         return self._nodes[x]
