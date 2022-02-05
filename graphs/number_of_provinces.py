@@ -23,4 +23,4 @@ class Solution:
                 if is_connected[x][y] == 1:
                     uf.union(x, y)
 
-        return len([x for idx, x in enumerate(uf._nodes) if x == idx])
+        return uf.root_count
