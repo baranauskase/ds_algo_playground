@@ -26,6 +26,10 @@ class UnionFind(object):
                 self._rank[root_x] += 1
             self._root_count -= 1
 
+    @property
+    def root_count(self):
+        return self._root_count
+
     def find(self, x):
         """
         Finds the root node of x
